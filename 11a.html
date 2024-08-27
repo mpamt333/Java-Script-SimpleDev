@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array</title>
+</head>
+<body>
+  <script>
+  //   function getLastValue(array){
+  //     return array[array.length - 1];
+  //   }
+
+  //   function arraySwap(array){
+  //     let mirrorArray = [];
+  //       for (let i = array.length; i>0; i--){
+  //         mirrorArray.push(array[i-1]);
+  //     }
+  //     return mirrorArray;
+  //   }
+
+  //   function countByTwo(){
+  //     for( let i = 0; i<=10; i+=2)
+  //       console.log(i);
+  //   }
+  //   function countDownFive(){
+  //     let i =5;
+  //     while(i>=0){
+  //       console.log(i);
+  //       i--;
+  //     }
+  //   }
+    
+  //   function increaseOption(array, option){
+  //     for  (let i = 0; i<array.length; i++){
+  //       array[i] += option;
+  //     }
+  //     console.log(array);
+  //   }
+
+  //   function addArray(array, array2){
+  //     for  (let i = 0; i<array.length; i++){
+  //       array[i] += array2[i];
+  //     }
+  //     console.log(array);
+  //   }
+    
+  //   function countPositive(array){
+  //     let count = 0;
+  //     for  (let i = 0; i<array.length; i++){
+  //       array[i] > 0 ? count++ : (let)
+  //     }
+  //     return count;
+  //   }
+
+  
+  //   function minMax(array){
+  //     if (!array[0]){
+  //       return [null, null];
+  //     }
+
+  //     let min = array[0];
+  //     let max = array[0];
+  //     for(let  i = 1; i<array.length; i++){
+  //       array[i]> max ? max = array[i]: null
+  //       array[i] < min ? min  = array[i] : null
+  //   }
+  //   return {min, max}
+  // }
+
+  function countWords(wordArray) {
+  let fruit = {};
+  for (let i = 0; i < wordArray.length; i++) {
+    if (!fruit[wordArray[i]]) {
+      fruit[wordArray[i]] = 1;
+    } else {
+      fruit[wordArray[i]]++;
+    }
+  }
+  return fruit;
+}
+
+console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+    
+
+  </script>
+</body>
+</html>

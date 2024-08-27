@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon calculator</title>
+</head>
+<body>
+  <p>
+    Amazon Shipping calculator
+  </p>
+  <p>
+    Orders under $40: + $10 shipping
+  </p>
+  <p>
+    Order over  $40: FREE shipping
+  </p>
+  <p>
+    <input 
+    onkeydown="handleKey(event)"
+    class="js-input" type="number" placeholder="Cost of Order" >
+  
+    <button onclick="
+      calculateShip();
+    ">
+      Calculate
+    </button>
+  </p>
+
+  <p class="js-result">
+
+  </p>
+
+  <script>
+
+
+    window.alert('hello');
+
+    function calculateShip(){
+      let input = document.querySelector('.js-input');
+      let result = document.querySelector('.js-result');
+      
+        if (input.value < 40){
+          let ship = Number(input.value);
+            if (ship) {
+              let total = ship + 10;
+              result.innerHTML = `$${total}`;
+            }else{
+              result.innerHTML = `Nothing to ship`;
+            }
+        }else{
+          result.innerHTML = `$${input.value}`;
+        }
+      }
+
+      function handleKey(event){
+        if (event.key === 'Enter'){
+          calculateShip();
+        }
+      }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+<body>
+  
+  <script>
+    /* const product = {
+      name:  'Product 1',
+      price:  10.99,
+    };
+    console.log(product);
+    console.log(product.name);
+    console.log(product.price);
+
+    product.name = 'Cotton shirt';
+    delete  product.name;
+    console.log(product.name);
+    
+
+    const product2 = {
+      name: 'Shirt',
+      'delivery-time': '10 days',
+      rating: {
+        star: 4.5,
+        count: 89
+      },
+
+      fun: function introduce(){
+        console.log('Hello, I am a shirt!');
+      }
+    };
+    console.log(product2['name']);
+    console.log(product2['delivery-time']);
+
+    console.log(product2.rating.star);
+    console.log(product2.rating.count);
+    product2.fun();
+
+//JSON Object
+    console.log(typeof JSON.stringify(product2));
+    const jsonString = JSON.stringify(product2);
+    console.log(JSON.parse(jsonString));
+
+//localStorage
+    localStorage.setItem('message', 'Hello');
+    let  message = localStorage.getItem('message');
+    console.log(message);
+  */
+
+//autoBoxing
+    console.log('Helo Vinh Pham'.length);
+    console.log('Helo Vinh Pham'.toUpperCase());
+
+    const obj4 = {
+      property : 'This property inside obj4',
+      price:  10.99,
+
+      // method: function sayBye(){
+      //   console.log('Good bye!');
+      // }
+      method() {
+        console.log('Good bye shortHand method!');
+      }
+  };
+  //destruction shortCut
+    const { property, price} = obj4;
+    console.log(property, price);
+  //shortHand property
+  const obj5 = {
+    property
+  };
+  console.log(obj5);
+  console.log()
+  
+  //shorthand Method
+  obj4.method();
+
+  </script>
+</body>
+</html>

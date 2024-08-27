@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercises</title>
+  <style>
+    .amz-button{
+      background-color: rgb(255, 216, 20);
+      border: none;
+      padding: 5px 30px;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+    .amz-button:hover{
+      background-color: rgb(255, 165, 0);
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .uber-button-1{
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .uber-button-2{
+      background-color: rgb(230, 230, 230);
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+    .uber-button-1:hover,  .uber-button-2:hover{
+      transform: scale(1.01);
+    }
+  </style>
+</head>
+<body>
+  <p>Amazon Button</p>
+  <button class="amz-button">Add to Cart</button>
+  <p>Uber Button</p>
+  <p>
+    <button class="uber-button-1" >Request now</button>
+    <button class="uber-button-2">Schedule for later</button>
+  </p>
+
+  <button class="js-button">
+    Test
+  </button>
+
+<script>
+  const buttonElement = document.querySelector('.js-button');
+  console.log(buttonElement.classList.contains('js-button'));
+</script>
+  
+</body>
+</html>

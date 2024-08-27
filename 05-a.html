@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables</title>
+</head>
+<body>
+  <p>
+    Order: 
+    <button onclick="coffee++;
+      console.log(coffee);
+    ">
+      +
+    </button>
+
+    <button onclick="coffee--;">
+      -
+    </button>
+    <span> Coffee</span>
+  </p>
+
+
+
+  <script>
+    let name = 'Vinh';
+    let coffee = 5;
+    const bagle = 3;
+    const soup = 9;
+    let cost = 1*coffee + 2*bagle + 1*soup;
+    let tax =  0.1*cost;
+    let totalCost = cost + tax;
+    console.log(`coffee is : ${coffee}`);
+    console.log(`My name is: ${name}`);
+    console.log(`Cost of food: $ ${cost}`);
+    console.log(`Tax (10%): $ ${tax}`);
+    console.log(`Total Cost: $ ${totalCost}`);
+
+  </script>
+</body>
+</html>

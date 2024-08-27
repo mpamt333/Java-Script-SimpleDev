@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <p>Rock Paper Scissors</p>
+
+  <p>
+    <button onclick="
+      getResult('Rock');
+    ">Rock</button>
+
+    <button onclick="
+      getResult('Paper');
+    ">Paper</button>
+
+    <button onclick="
+      getResult('Scissors');
+    ">Scissors</button>
+   
+    <button onclick="
+      resetLog();
+    ">Reset Score</button>
+  </p>
+
+      <script>
+
+        let playLog = loadScrore();
+
+        console.log(JSON.parse(localStorage.getItem('playLog')))
+        
+        function loadScrore(){
+          let loadOK = JSON.parse(localStorage.getItem('playLog'))
+          || {
+                Win :0,
+                Lose :0,
+                Tie: 0
+              };
+          return loadOK;
+        }
+
+
+      function computerCalculate(){
+        randomNumber = Math.random();
+
+        (randomNumber >=0 && randomNumber < 1/3) &&  (computerChoose = 'Rock');
+        (randomNumber >=1/3 && randomNumber < 2/3) &&  (computerChoose = 'Paper');
+        (randomNumber >=2/3 && randomNumber < 3) &&  (computerChoose = 'Scissors');
+        return  computerChoose;
+      }
+
+        function getResult(playerMove, computerMove = computerCalculate()){
+    if (computerMove === playerMove) {
+    playLog['Tie'] += 1;
+    alert(`You play ${playerMove} and  computer play ${computerMove}. It's a tie! 
+${displayLog()}`);
+  } else if (
+    computerMove === 'Paper' && playerMove === 'Rock' ||
+    computerMove === 'Rock' && playerMove === 'Scissors' ||
+    computerMove === 'Scissors' && playerMove === 'Paper'
+  ) {
+    playLog['Lose'] += 1;
+    alert(`You play ${playerMove} and  computer play ${computerMove}. You Lose! 
+${displayLog()}`);
+  } else {
+    playLog['Win'] += 1;
+    alert(`You play ${playerMove} and  computer play ${computerMove}. You Win! 
+${displayLog()}`);
+  }
+
+
+  saveScore();
+}
+
+
+      function displayLog(){
+        let log = (`Win: ${playLog.Win} Lose: ${playLog.Lose} Tie: ${playLog.Tie}`);
+        return log;
+      }
+
+      function resetLog(){
+        localStorage.removeItem('playLog');
+        playLog = loadScrore();
+        alert('Score Reset!');
+      }
+
+      function saveScore(){
+        localStorage.setItem('playLog', JSON.stringify(playLog));
+      }
+
+
+  </script>
+ 
+</body>
+</html>

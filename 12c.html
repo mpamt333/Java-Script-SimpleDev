@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12b</title>
+</head>
+<body>
+  <button class="js-start" onclick="setTime();">
+    Start
+  </button>
+
+  <button class="js-cart" onclick="setTimeCart();">
+    Add to Cart
+  </button>
+  <p>
+   <button 
+    onclick="addMess();
+    changeTitle();
+    "
+   class="js-addMess">
+      Add messages
+    </button>
+  
+    <button 
+    onclick="removeMess();
+    changeTitle();
+    "
+    
+    class="js-removeMess">   
+      Remove messages
+    </button>
+  </p>
+
+  <p class="js-status"></p>
+
+  <script>
+
+    function setTime(){
+      document.querySelector('.js-start').innerHTML = 'Loading...'
+      setTimeout(() => {
+        document.querySelector('.js-start').innerHTML = 'Finish!'
+      }, 3000);
+    }
+
+    let timerId;
+    function setTimeCart(){
+      const status = document.querySelector('.js-status');
+      status.innerHTML = 'Added';
+      
+      clearTimeout(timerId);
+        timerId = setTimeout(() => {
+              status.innerHTML = '';
+          },2000);
+    }
+   
+    let messCount = 0;
+
+    function addMess(){
+      messCount++;
+    }
+    function removeMess(){
+      messCount--;
+      if (messCount === 0){
+        return;
+      }
+    }
+
+    
+    let change;
+    function changeTitle(){
+      //messcount = 0 -> Khong chay ham
+      //messCount >1   -> chay ham
+      if (messCount > 0){
+        change = setInterval(()=>{
+          document.title = `(${messCount}) New messages`;
+            setTimeout(() => {
+              document.title = 'App';
+            }, 750);
+        }, 1500);
+      }else{
+        document.title = 'App';
+        clearInterval(change);
+      }
+
+    }
+
+
+  </script>
+</body>
+</html>

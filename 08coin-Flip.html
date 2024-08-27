@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin FLip Game</title>
+</head>
+<body>
+  
+  <button
+    onclick= "
+      loadScore();
+      getResult('Sấp');
+    ">
+    Sấp
+  </button>
+
+  <button onclick="
+    loadScore();
+    getResult('Ngửa');
+  ">
+    Ngửa
+  </button>
+
+    <button onclick="
+      reset();
+    ">
+      Reset
+    </button>
+
+    <p class="js-result">
+    </p>
+
+
+  <script>
+    let playLog = loadScore();
+    let resultElement = document.querySelector(".js-result");
+      resultElement.innerHTML = `Make your fisrt move!`
+
+
+    function flipCoin(){
+      let randomNumber = Math.random();
+      if(randomNumber < 0.5){
+        return  'Sấp';
+      }else{
+        return 'Ngửa';
+      }
+    }
+
+    function getResult(playerMove, computerMove = flipCoin()){
+      if(playerMove == computerMove){
+        playLog.Win++;
+        resultElement.innerHTML = `Congrats! You choose: ${playerMove} <br> Win: ${playLog.Win} Lose: ${playLog.Lose}`;
+      }else{
+        playLog.Lose++;
+        resultElement.innerHTML = `Sorry! You choose: ${playerMove} <br> Win: ${playLog.Win} Lose: ${playLog.Lose}`;
+      }
+
+      localStorage.setItem('playLog', JSON.stringify(playLog));
+    }
+    
+    function loadScore(){
+      let loadOk = JSON.parse(localStorage.getItem('playLog')) || 
+      {
+        Win : 0,
+        Lose : 0
+      };
+      return loadOk;
+    }
+
+      function reset(){
+        resultElement.innerHTML = `Let's Play!`;
+        localStorage.removeItem('playLog');
+        playLog = loadScore();
+      }
+
+  </script>
+</body>
+</html>

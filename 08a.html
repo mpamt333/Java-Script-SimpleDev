@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+<body>
+  
+  <script>
+    const product1 = {
+      name: 'basket Ball',
+      price: 2095,
+      'delivery-time': '3 days'
+    };
+
+    const product2 = {
+      name: 'Football',
+      price: 3500,
+      'delivery-time': '2 days'
+    }
+
+    const product3 = {
+      name: 'Football',
+      price: 3500,
+      'delivery-time': '2 days'
+    }
+
+
+    function comparePrice(product1, product2){
+      if (product1.price >  product2.price){
+        return product1.name;
+      }else if (product1.price < product2.price){
+        return product2.name;
+      }else{
+        return 'Both products are equal';
+      }
+    }
+
+    function isSameProduct(product1, product2){
+      if (product1.name === product2.name && product1.price === product2.price){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    console.log('Compare less: '+  comparePrice(product1, product2));
+    console.log('Duplicate: '+ isSameProduct(product1, product2));
+
+    function convertToLowcase(message){
+      message = message.toLowerCase();
+      return message;
+    }
+
+    console.log(convertToLowcase('YOU Can Type ANY UPcase'));
+
+    console.log('Hello'.repeat(5));
+
+    
+
+  </script>
+</body>
+</html>

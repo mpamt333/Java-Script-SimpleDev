@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function</title>
+</head>
+<body>
+    <button onclick="
+      greet('Vinh');">
+      Hello console
+    </button>
+
+    <button onclick=" console.log(ConvertCelsius(77));">
+    Celsius Convert
+    </button>
+
+    <button onclick=" console.log(ConvertFahrenheit(21));">
+    Fahrenheit Convert
+    </button>
+
+
+  <script>
+
+    function greet(userName){
+      (!userName) && console.log('Hi there');
+      userName && console.log('Hello!'+ userName);
+    }
+    
+    
+
+    function ConvertTemperature(Degree, Unit){
+     if (Unit === 'F'){
+      return ConvertFahrenheit(Degree)
+     }else if (Unit === 'C'){
+      return ConvertCelsius(Degree)
+     }else{
+      return  'Invalid unit';
+     }
+    }
+
+    function ConvertFahrenheit(Degree){
+      return (Degree * 9/5) + 32;
+    }
+
+    function ConvertCelsius(Degree){
+      return (Degree - 32) * 5/9;
+    }
+
+    console.log(`${ConvertTemperature(77,  'F')}`);
+    
+
+
+  </script>
+</body>
+</html>

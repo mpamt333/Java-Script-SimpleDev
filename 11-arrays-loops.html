@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array and Loops</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: medium;
+    }
+    .isError{
+      color: red;
+      font-size: small;
+    }
+    .input-todo{
+      padding: 10px 30px;
+      width: 230px;
+    }
+    .input-date{
+      padding: 10px 30px;
+      width: 100px;
+    }
+    .input-time{
+      padding: 10px 30px;
+      width: 100px;
+    }
+    .add-btn{
+     color: white;
+     background-color: green;
+     border: none;
+     cursor: pointer;
+    }
+
+    .delete-btn{
+      color: white;
+      background-color: rgb(139, 0, 0);
+      border: none;
+      cursor: pointer;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    
+    .todo-grid{
+      display: grid;
+      padding-top: 10px;
+      grid-template-columns: 300px  170px 170px 120px;
+      align-items: center;
+    }
+    .input-grid{
+      display: grid;
+      grid-template-columns: 300px  170px 170px 120px;
+      align-items: stretch;
+    } 
+
+  </style>
+
+</head>
+<body>
+  <h3>Todo List</h3>
+  <p class="isError"></p>
+
+  <div class="input-grid">
+      <input class="input-todo" type="text"  id="js-todo" placeholder="Enter a todo item">
+      
+      <input type="date" name="" id="js-date" class="input-date">
+      <input type="time" name="" id="js-time" class="input-time">
+      
+      <button class="add-btn js-add-btn"
+        >Add Todo</button>
+    </div>
+    
+    <div class="todo-field"></div>
+  <script>
+
+let arrTodo = [];
+let showElement = document.querySelector('.todo-field');
+
+document.querySelector('.js-add-btn').addEventListener('click', () => {
+  addTodo();
+  showTodo();
+})
+
+    function addTodo() {
+      const name =  document.getElementById('js-todo').value;
+      const date = document.getElementById('js-date').value;
+      const time = document.getElementById('js-time').value;
+      if (name){
+          if (Array.isArray(arrTodo)){
+            //shorthand object
+            arrTodo.push({name, date, time});
+
+            clearInput();
+          }else{
+            isError('arrNotInit')
+          }
+        
+          isError(false)
+      }else{
+          isError('emptyInput');
+      }
+    }
+
+    function isError(mess){
+      let showElement = document.querySelector('.isError');
+
+        if(mess === 'arrNotInit'){
+          showElement.textContent = 'Error: Array is not defined';
+        }
+        if  (mess === 'emptyInput'){
+        showElement.textContent = 'Please  enter a todo item';
+        }
+        if (mess === false){
+          showElement.innerHTML = '';
+        }
+    }
+
+    function clearInput(){
+      document.getElementById("js-todo").value = '';
+    }
+
+    function deleteEvent(index){
+        arrTodo.splice(index, 1);
+        showTodo();
+    }
+
+    function showTodo(){
+      
+      showElement.innerHTML = '';
+      
+      arrTodo.forEach((todoObject, index) => {
+        const { name, date, time } = todoObject;
+        showElement.innerHTML += `
+          <div class="todo-grid">
+            <div>${index+1}. ${name}</div>
+            <div>${date}</div>
+            <div>${time}</div>
+            <button class="js-delete delete-btn"
+              ">Delete</button> 
+          </div>      
+          `;  
+          })
+
+        document.querySelectorAll('.js-delete').forEach((deleteBtn,  index) => {
+          deleteBtn.addEventListener('click', () => {
+            deleteEvent(index);
+          })
+        })
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+
+  <style>
+    body{
+      background-color: black;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .num-btn{
+      width: 40px;
+      height: 40px;
+      color: white;
+      background-color: rgb(51, 51,51);
+      border: none;
+      border-radius: 20px;
+      font-size: medium;
+      margin-left: 1px;
+      margin-top: -5px;
+      cursor: pointer;
+    }
+    .operator-btn{
+      width: 40px;
+      height: 40px;
+      color: white;
+      background-color: rgb(254, 160, 10);
+      border: none;
+      border-radius: 20px;
+      font-size: medium;
+      margin-left: 1px;
+      margin-top: -5px;
+      cursor: pointer;
+    }
+    .num-btn:hover, .c-btn:hover, .ac-btn:hover{
+      background-color: rgb(102, 102, 102);
+    }   
+    .operator-btn:hover{
+      background-color:rgb(205, 131, 11)
+    }
+    .c-btn, .ac-btn{
+      width: 80px;
+      height: 40px;
+      color: white;
+      background-color: rgb(51, 51,51);
+      border: none;
+      border-radius: 20px;
+      font-size: medium;
+      margin-left: 4px;
+      margin-top: -5px;
+      cursor: pointer;
+    }
+    .calculator-body{
+      border: 1px solid white;
+      width:  fit-content;
+      padding: 10px 10px 0px 10px;
+      border-radius: 25px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <div class="calculator-body">
+    <h2 class="js-screen"></h2>
+    <p>
+      <button class="num-btn" onclick="showScreen(1);">1</button>
+      <button class="num-btn" onclick="showScreen(2);">2</button>
+      <button class="num-btn" onclick="showScreen(3);">3</button>
+      <button class="operator-btn" onclick="showScreen('+');">+</button>
+    </p>  
+    <p>
+      <button class="num-btn" onclick="showScreen(4);">4</button>
+      <button class="num-btn" onclick="showScreen(5);">5</button>
+      <button class="num-btn" onclick="showScreen(6);">6</button>
+      <button class="operator-btn" onclick="showScreen('-');">-</button>
+    </p>  
+    <p>
+      <button class="num-btn" onclick="showScreen(7);">7</button>
+      <button class="num-btn" onclick="showScreen(8);">8</button>
+      <button class="num-btn" onclick="showScreen(9);">9</button>
+      <button class="operator-btn" onclick="showScreen('*');">*</button>
+    </p>
+    <p>
+      <button class="num-btn" onclick="showScreen(0);">0</button>
+      <button class="num-btn" onclick="showScreen('.');">.</button>
+      <button class="num-btn" onclick="calculate();">=</button>
+      <button class="operator-btn" onclick="showScreen('/');">/</button>
+    </p> 
+    <p>
+      <button class="c-btn" onclick="" title="In dev, coming soon">C</button>
+      <button class="ac-btn" onclick="clearScreen();">AC</button>
+    </p> 
+  </div>
+
+  <script>
+    const screen = document.querySelector('.js-screen');
+    
+    function showScreen(keyMouseClick) {
+      screen.innerHTML += keyMouseClick;
+    }
+
+    function calculate(){
+      screen.innerHTML = eval(screen.innerHTML);
+    }
+    function clearScreen(){
+      screen.innerHTML = '';
+    }
+  </script>
+</body>
+</html>

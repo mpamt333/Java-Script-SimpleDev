@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM2</title>
+
+  <style>
+    .sub-button {
+      border: none;
+      background-color: white;
+      color: rgb(0, 0, 0);
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+
+    .is-subcribed{
+      background-color: rgb(43, 43, 43);
+      color: white;
+    }
+
+    .js-button-calculate{
+      border: none;
+      padding: 10px 15px;
+      color: white;
+      background-color: rgb(12, 119, 2);
+      font-weight: normal;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 0, 0);
+    }
+  </style>
+
+
+
+
+</head>
+<body>
+  <p>
+    Youtube Subscribe Button
+  </p>
+  <button onclick=" changeSub(); "class="js-bt-subscribe sub-button">
+    Subscribe
+  </button>
+
+  <p>
+    <button class="js-button-calculate">
+      Calculate
+    </button>
+  </p>
+  
+  <script>
+    function changeSub(){
+    const buttonElement = document.querySelector('.js-bt-subscribe');
+        if (buttonElement.innerText === 'Subscribe'){
+          buttonElement.innerText = 'Subscribed';
+          buttonElement.classList.add('is-subcribed');
+        }else{
+          buttonElement.innerText = 'Subscribe';
+          buttonElement.classList.remove('is-subcribed');
+        }
+    }
+    
+  </script>
+</body>
+</html>

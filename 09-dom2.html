@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM2</title>
+</head>
+<body>
+  <p>
+    Youtube Subscribe Button
+  </p>
+  <button onclick=" changeSub(); "class="js-bt-subscribe">
+    Subscribe
+  </button>
+  
+  <script>
+    function changeSub(){
+    const buttonElement = document.querySelector('.js-bt-subscribe');
+        if (buttonElement.innerText === 'Subscribe'){
+          buttonElement.innerText = 'Subscribed';
+        }else{
+          buttonElement.innerText = 'Subscribe';
+        }
+    }
+    
+  </script>
+</body>
+</html>

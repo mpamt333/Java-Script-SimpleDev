@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11o</title>
+</head>
+<body>
+  <script>
+    arrString = ['hello','search' , 'world', 'search','search', 'good'];
+
+    // let arrStringCopy = arrString.slice();
+    // console.log(removeWord(arrStringCopy, 'search', 2));
+    // console.log(arrString);
+
+    //findIndex
+    function searchWord(arr, word) {
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === word){
+          return i;
+          break;
+          }
+        }
+      return -1;
+    }
+
+    console.log('helo');
+
+    
+    function findWord(arr, word){
+    return arr.indexOf(word);
+    //dont know yet
+    }
+
+    function removeWord(arr, word, time) {
+        let newArr = [];
+        let count =0;
+          arr = arr.reverse();
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] === word && count < time){
+            count +=1;
+            continue;
+          }else{
+            newArr.push(arr[i]);
+          }
+        }
+        return newArr;
+    }
+
+    function FizzBuzz(){
+      for  (let i = 1; i <=50; i++) {
+        if (i%3  === 0 && i%5 === 0){
+          console.log('FizzBuzz');
+        }else if (i % 5 === 0){
+          console.log('Buzz');
+        }else if  (i % 3 === 0){
+          console.log('Fizz');
+        }else{
+          console.log(i);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

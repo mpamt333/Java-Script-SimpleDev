@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ex</title>
+  <style>
+    .gaming-btn{
+      background-color: rgb(230, 230,230);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    .music-btn{
+      background-color: rgb(230, 230,230);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    .tech-btn{
+      background-color: rgb(230, 230,230);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+    .tech-btn:hover,  .gaming-btn:hover, .music-btn:hover{
+      transform: scale(1.02);
+    }
+
+    .active{
+      background: black;
+      color: white;
+    }
+
+    .calculate-btn{
+      background-color: rgb(0, 139, 46);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+    }
+    .calculate-btn:active{
+      background-color: rgb(0, 119, 40) ;
+    }
+    .input-cost{
+      padding: 8px;
+    }
+    body{
+      font-family: Arial, sans-serif;
+    }
+    .js-error{
+      font-size: small;
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+  <button 
+  onclick="
+  resetActive();
+  gameBtn.classList.toggle('active');"
+  class="gaming-btn">
+    Gaming
+  </button>
+
+  <button
+  onclick="
+  resetActive();
+  musicBtn.classList.toggle('active');"
+  class="music-btn">
+    Music
+  </button>
+
+  <button
+  onclick="
+  resetActive();
+  techBtn.classList.toggle('active');"
+  class="tech-btn">
+    Tech
+  </button>
+
+  <p>
+    <input 
+    type="number" class="input-cost js-cost" placeholder="Typing Cost">
+
+    <button 
+    onclick="
+    checkInput();
+    "
+    class="calculate-btn">Calculate</button>
+  </p>
+  <p class="js-error"></p>
+
+
+  <script>
+    const gameBtn = document.querySelector('.gaming-btn');
+    const musicBtn = document.querySelector('.music-btn');
+    const techBtn = document.querySelector('.tech-btn');
+    const costElement = document.querySelector(".js-cost");
+    
+    function checkInput(){
+     
+      if( costElement.value < 0 ){
+        document.querySelector('.js-error').innerHTML = 'Error: cost cannot be less than $0'
+      }else{
+        document.querySelector('.js-error').innerHTML = 'OK'
+      }
+    }
+
+    function resetActive(){
+      gameBtn.classList.remove('active');
+      musicBtn.classList.remove('active');
+      techBtn.classList.remove('active');
+    }
+   
+  </script>
+</body>
+</html>
